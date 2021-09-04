@@ -1,0 +1,11 @@
+@font-face {
+	font-family: "inter-400";
+	src: local("inter-400"),
+		url(./assets/Inter/Inter-Regular.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "inter-500";
+	src: local("inter-500"),
+		url(./assets/Inter/Inter-Medium.ttf) format("truetype");
+}

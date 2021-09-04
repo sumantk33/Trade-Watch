@@ -1,0 +1,19 @@
+{
+	"name": "trade-watch",
+	"version": "1.0.0",
+	"description": "Web app to track all the potential trades",
+	"main": "app.js",
+	"scripts": {
+		"server": "node server/app.js",
+		"client": "npm start --prefix client",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Sumant Katti",
+	"license": "MIT",
+	"dependencies": {
+		"axios": "^0.18.1",
+		"express": "^4.16.4",
+		"indian-stock-exchange": "^1.3.33",
+		"loadash": "^1.0.0"
+	}
+}
