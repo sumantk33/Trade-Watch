@@ -2,14 +2,39 @@ $grey-text: #718096;
 $red-text: #e53e3e;
 $green-text: #38a169;
 $watchlist-header-font-size: 16px;
+$width-component: 900px;
+$add-button-bg: #3182ce;
+$add-hover: #2b6cb0;
 
 .watchlist {
 	margin-top: 40px;
 }
 
+.watchlist-add-section {
+	display: flex;
+	justify-content: right;
+	margin: 0 auto 20px auto;
+	width: calc(30px + #{$width-component});
+}
+
+.add-stock-button {
+	width: 155px;
+	height: 40px;
+	font-size: 16px;
+	font-family: "inter-400";
+	border-radius: 5px;
+	transition: 0.2s;
+	background-color: $add-button-bg;
+	color: #fff;
+
+	&:hover {
+		background-color: $add-hover;
+	}
+}
+
 .watchlist-header {
 	height: 40px;
-	width: 900px;
+	width: $width-component;
 	margin: 10px auto;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -40,7 +65,7 @@ $watchlist-header-font-size: 16px;
 
 .watchlist-item {
 	min-height: 70px;
-	width: 900px;
+	width: $width-component;
 	margin: 10px auto;
 	border: 1px solid #ccc;
 	border-radius: 4px;

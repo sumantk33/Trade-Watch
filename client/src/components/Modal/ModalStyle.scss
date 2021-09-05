@@ -1,7 +1,151 @@
+$grey-text: #718096;
+$border-color: #dcdcdc;
+$blue-button: #3182ce;
+$blue-hover: #2b6cb0;
+$close-button-text: #111;
+$grey-200: #edf2f7;
+$grey-300: #e2e8f0;
+
 .modal-wrapper {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 10;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+	width: 800px;
+	min-height: 450px;
+	background-color: #fff;
+	padding: 20px 30px;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid $border-color;
+	padding-bottom: 10px;
+}
+
+.modal-title {
+	font-size: 22px;
+}
+
+.modal-close {
+	color: #000;
+	font-size: 22px;
+	font-weight: bold;
+
+	&:hover,
+	&:focus {
+		color: #aaa;
+		cursor: pointer;
+	}
+}
+
+.modal-body {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: 10px;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+	width: 800px;
+	border-bottom: 1px solid $border-color;
+}
+
+.no-border {
+	border: none;
+}
+
+.modal-label {
+	font-size: 16px;
+	flex: 0.3;
+	text-align: left;
+}
+
+.modal-input {
+	border: 1px solid $border-color;
+	border-radius: 3px;
+	padding: 8px 6px;
+	margin-right: 40px;
+	font-size: 16px;
+	width: 50%;
+	font-family: "inter-400";
+
+	&:focus {
+		outline: none;
+		border: 1px solid #0078d4;
+	}
+}
+
+.modal-link-input {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-right: 40px;
+	padding-right: 14px;
+	width: 50%;
+}
+
+.modal-note {
+	margin-top: 5px;
+	color: $grey-text;
+	font-size: 12px;
+	text-align: left;
+}
+
+.w-full {
+	width: 100%;
+}
+
+textarea {
+	resize: none;
+}
+
+.modal-body-buttons {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.modal-button {
+	width: 100px;
+	height: 40px;
+	font-size: 16px;
+	font-family: "inter-400";
+	border-radius: 5px;
+	transition: 0.2s;
+}
+
+.modal-add-button {
+	margin-right: 40px;
+	background-color: $blue-button;
+	color: #fff;
+
+	&:hover {
+		background-color: $blue-hover;
+	}
+}
+
+.modal-close-button {
+	margin-right: 20px;
+	color: $close-button-text;
+	background-color: $grey-200;
+
+	&:hover {
+		background-color: $grey-300;
+	}
 }

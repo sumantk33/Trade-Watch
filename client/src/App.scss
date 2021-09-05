@@ -8,6 +8,7 @@ body {
 	/* Position relative given to add shadow effect over navbar */
 	position: relative;
 	background-color: #f9f9f9;
+	height: calc(100vh - 60px);
 }
 
 .body-container {
@@ -15,9 +16,21 @@ body {
 	width: 70vw;
 	margin: 0 auto;
 	z-index: 0;
-	height: calc(100vh - 60px);
 }
 
 .dashboard {
 	text-align: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+}
+
+.button {
+	border: none;
+	cursor: pointer;
 }

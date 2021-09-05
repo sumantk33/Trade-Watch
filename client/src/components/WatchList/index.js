@@ -1,17 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./WatchList.scss";
 import { useToasts } from "react-toast-notifications";
 import { getWatchList } from "../../actions/watchListActions";
 import WatchListItem from "./WatchListItem";
 import { toastConfig } from "../../utils/toast/toastConfig";
+import Modal from "../Modal";
 
 const WatchList = () => {
+	const [open, setOpen] = useState(false);
+	const [action, setAction] = useState("Add");
+	const [currStock, setCurrStock] = useState({});
 	const dispatch = useDispatch();
 	const { addToast } = useToasts();
 
 	const watchList = useSelector((state) => state.watchList);
 	const { loading, error, stocks } = watchList;
+
+	const addModalFunc = () => {
+		setOpen(true);
+		setAction("Add");
+		setCurrStock({});
+	};
+
+	const editModalFunc = (stock) => {
+		setOpen(true);
+		setAction("Edit");
+		setCurrStock(stock);
+	};
 
 	useEffect(() => {
 		dispatch(getWatchList());
@@ -20,6 +36,15 @@ const WatchList = () => {
 	return (
 		<div className='watchlist'>
 			{error && addToast(error, toastConfig("error"))}
+
+			<div className='watchlist-add-section'>
+				<button
+					className='button add-stock-button'
+					onClick={addModalFunc}
+				>
+					Add a stock
+				</button>
+			</div>
 			<div className='watchlist-header'>
 				<div className='watchlist-start'>
 					<div>Id</div>
@@ -41,8 +66,15 @@ const WatchList = () => {
 						key={stock.symbol}
 						stock={stock}
 						index={index}
+						editModalFunc={editModalFunc}
 					/>
 				))}
+			<Modal
+				open={open}
+				setOpen={setOpen}
+				action={action}
+				stock={currStock}
+			/>
 		</div>
 	);
 };

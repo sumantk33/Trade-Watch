@@ -1,9 +1,13 @@
 import React from "react";
 import { getTextColor } from "../../utils/text_color/index";
 
-const WatchListItem = ({ stock, index }) => {
+const WatchListItem = ({ stock, index, editModalFunc }) => {
+	const openEditModal = () => {
+		editModalFunc(stock);
+	};
+
 	return (
-		<div className='watchlist-item'>
+		<div className='watchlist-item' onClick={openEditModal}>
 			<div className='watchlist-start'>
 				<div className='watchlist-index'>{index + 1}</div>
 				<div className='watchlist-stock'>
@@ -18,7 +22,7 @@ const WatchListItem = ({ stock, index }) => {
 					{stock.market_price}
 				</div>
 				<div className='watchlist-metrics-required-price'>
-					{stock.required_price}
+					{stock.target_price}
 				</div>
 				<div
 					className={`watchlist-metrics-per-difference ${getTextColor(
