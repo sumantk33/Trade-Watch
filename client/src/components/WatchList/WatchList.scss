@@ -1,0 +1,116 @@
+$grey-text: #718096;
+$red-text: #e53e3e;
+$green-text: #38a169;
+$watchlist-header-font-size: 16px;
+
+.watchlist {
+	margin-top: 40px;
+}
+
+.watchlist-header {
+	height: 40px;
+	width: 900px;
+	margin: 10px auto;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 15px;
+	background-color: #fff;
+	color: $grey-text;
+	font-size: $watchlist-header-font-size;
+}
+
+.watchlist-header-stock {
+	padding: 0 20px;
+}
+
+.watchlist-header-metrics {
+	display: flex;
+	align-items: center;
+	min-width: 350px;
+	font-size: $watchlist-header-font-size;
+}
+
+// //
+// 	Body Styles
+// //
+
+.watchlist-item {
+	min-height: 70px;
+	width: 900px;
+	margin: 10px auto;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 15px;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+.watchlist-index {
+	text-align: left;
+	font-size: 15px;
+	width: 15px;
+	border-right: 1px solid #bbb;
+}
+
+.watchlist-stock {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0 20px;
+}
+
+.watchlist-stock-name {
+	font-size: 17px;
+}
+
+.watchlist-stock-symbol {
+	margin-top: 5px;
+	font-size: 13px;
+	color: $grey-text;
+}
+
+.watchlist-start {
+	display: flex;
+	align-items: center;
+}
+
+.watchlist-metrics {
+	display: flex;
+	align-items: center;
+	min-width: 350px;
+	font-size: 15px;
+}
+
+.watchlist-metrics-market-price {
+	flex: 0.3;
+}
+
+.watchlist-metrics-required-price {
+	flex: 0.3;
+}
+
+.watchlist-metrics-per-difference {
+	text-align: right;
+	flex: 0.3;
+	border-left: 1px solid #bbb;
+}
+
+.red {
+	color: $red-text;
+}
+
+.green {
+	color: $green-text;
+}
+
+.grey {
+	color: $grey-text;
+}

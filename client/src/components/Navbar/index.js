@@ -8,8 +8,6 @@ import HalfWidthComponent from "./HalfWidthComponent";
 const Navbar = () => {
 	const [width] = useWindowWidth();
 
-	console.log(width);
-
 	return (
 		<div className='navbar'>
 			<div className='navbar-wrapper'>
