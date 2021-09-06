@@ -4,7 +4,7 @@ import "./ModalStyle.scss";
 const Modal = ({ open, setOpen, action, stock = {} }) => {
 	const [name, setName] = useState("");
 	const [symbol, setSymbol] = useState("");
-	const [targetPrice, setTargetPrice] = useState(0);
+	const [targetPrice, setTargetPrice] = useState();
 	const [link, setLink] = useState("");
 	const [comments, setComments] = useState("");
 
@@ -64,7 +64,7 @@ const Modal = ({ open, setOpen, action, stock = {} }) => {
 					<div className=' flex-row'>
 						<label className='modal-label'>Target Price</label>
 						<input
-							type='number'
+							type='text'
 							className='modal-input'
 							placeholder='Enter your target price'
 							value={targetPrice}

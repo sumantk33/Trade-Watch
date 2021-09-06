@@ -1,10 +1,16 @@
 // var API = require('indian-stock-exchange');
 var express = require("express");
 var API = require("./index");
+var cors = require("cors");
+var GET_QUOTE_URL = require("./nse/constant").GET_QUOTE_URL;
+var QUOTE_INFO_URL = require("./nse/constant").QUOTE_INFO_URL;
+var axios = require("axios");
 
 var NSEAPI = API.NSE;
 var app = express();
 const PORT = 5000;
+
+app.use(cors());
 
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`);
@@ -36,12 +42,38 @@ app.get("/nse/get_quotes", (req, res, next) => {
 	});
 });
 
+const getQuoteInfo = async (symbol) => {
+	const { data } = await axios.get(
+		QUOTE_INFO_URL + encodeURIComponent(symbol),
+		{
+			headers: {
+				Referer: GET_QUOTE_URL + encodeURIComponent(symbol),
+				"X-Requested-With": "XMLHttpRequest",
+			},
+		}
+	);
+
+	let price = data.data[0].lastPrice;
+	price = price.replace(",", "");
+	console.log(price);
+	return price;
+};
+
 // Get the quotation data of the symbol (companyName) from NSE - JSON
 // Example: http://localhost:3000/nse/get_quote_info?companyName=TCS
-app.get("/nse/get_quote_info", (req, res, next) => {
-	NSEAPI.getQuoteInfo(req.query.companyName).then(function (response) {
-		res.json(response.data);
-	});
+app.get("/nse/get_quote_info", async (req, res, next) => {
+	const names = req.query.companyName.split(",");
+	let result = {};
+
+	for (let name of names) {
+		try {
+			const data = await getQuoteInfo(name);
+			result[`${name}`] = data;
+		} catch (error) {
+			result[`${name}`] = data;
+		}
+	}
+	res.json({ prices: result });
 });
 
 // Get the top 10 gainers of NSE - JSON
