@@ -2,13 +2,13 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: "inter-400";
+	background-color: #f9f9f9;
 }
 
 .body-wrapper {
 	/* Position relative given to add shadow effect over navbar */
 	position: relative;
-	background-color: #f9f9f9;
-	height: calc(100vh - 60px);
+	min-height: calc(100vh - 60px - 80px);
 }
 
 .body-container {

@@ -1,4 +1,5 @@
 import "./App.scss";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 
@@ -11,6 +12,7 @@ function App() {
 					<Dashboard />
 				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }

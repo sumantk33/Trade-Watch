@@ -1,0 +1,30 @@
+$text-color: #718096;
+
+.footer {
+	height: 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 600px;
+	margin: 0 auto;
+	color: $text-color;
+}
+
+.icons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+	transition: 0.1s;
+	margin-left: 20px;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
