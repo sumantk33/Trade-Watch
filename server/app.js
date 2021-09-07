@@ -55,7 +55,6 @@ const getQuoteInfo = async (symbol) => {
 
 	let price = data.data[0].lastPrice;
 	price = price.replace(",", "");
-	console.log(price);
 	return price;
 };
 
@@ -74,6 +73,19 @@ app.get("/nse/get_quote_info", async (req, res, next) => {
 		}
 	}
 	res.json({ prices: result });
+});
+
+app.get("/nse/verify_stock", async (req, res, next) => {
+	try {
+		await getQuoteInfo(req.query.companyName);
+		res.json({
+			exists: true,
+		});
+	} catch (error) {
+		res.json({
+			exists: false,
+		});
+	}
 });
 
 // Get the top 10 gainers of NSE - JSON

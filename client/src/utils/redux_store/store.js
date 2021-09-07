@@ -2,10 +2,14 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import { watchListReducer } from "../../reducers/watchListReducers";
+import {
+	watchListReducer,
+	stockActionsReducer,
+} from "../../reducers/watchListReducers";
 
 const reducer = combineReducers({
 	watchList: watchListReducer,
+	stockAdd: stockActionsReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

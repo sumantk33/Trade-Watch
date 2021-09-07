@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./WatchList.scss";
 import { useToasts } from "react-toast-notifications";
-import { getLTP, getWatchList } from "../../actions/watchListActions";
+import { getWatchList } from "../../actions/watchListActions";
 import WatchListItem from "./WatchListItem";
 import { toastConfig } from "../../utils/toast/toastConfig";
 import Modal from "../Modal";
@@ -11,6 +11,7 @@ const WatchList = () => {
 	const [open, setOpen] = useState(false);
 	const [action, setAction] = useState("Add");
 	const [currStock, setCurrStock] = useState({});
+	const [modified, setModified] = useState(false);
 	const dispatch = useDispatch();
 	const { addToast } = useToasts();
 
@@ -29,14 +30,9 @@ const WatchList = () => {
 		setCurrStock(stock);
 	};
 
-	const getMetrics = async () => {
-		const data = await getLTP("TCS");
-		console.log(data);
-	};
-
 	useEffect(() => {
 		dispatch(getWatchList());
-	}, []);
+	}, [modified]);
 
 	return (
 		<div className='watchlist'>
@@ -79,6 +75,8 @@ const WatchList = () => {
 				setOpen={setOpen}
 				action={action}
 				stock={currStock}
+				modified={modified}
+				setModified={setModified}
 			/>
 		</div>
 	);

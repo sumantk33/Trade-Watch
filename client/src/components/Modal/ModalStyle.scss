@@ -1,10 +1,10 @@
 $grey-text: #718096;
 $border-color: #dcdcdc;
-$blue-button: #3182ce;
-$blue-hover: #2b6cb0;
+$submit-button-initial: #3182ce;
+$submit-button-hover: #2b6cb0;
 $close-button-text: #111;
-$grey-200: #edf2f7;
-$grey-300: #e2e8f0;
+$close-button-initial: #e53e3e;
+$close-button-hover: #c53030;
 
 .modal-wrapper {
 	position: fixed;
@@ -132,20 +132,20 @@ textarea {
 
 .modal-add-button {
 	margin-right: 40px;
-	background-color: $blue-button;
+	background-color: $submit-button-initial;
 	color: #fff;
 
 	&:hover {
-		background-color: $blue-hover;
+		background-color: $submit-button-hover;
 	}
 }
 
 .modal-close-button {
 	margin-right: 20px;
-	color: $close-button-text;
-	background-color: $grey-200;
+	color: #fff;
+	background-color: $close-button-initial;
 
 	&:hover {
-		background-color: $grey-300;
+		background-color: $close-button-hover;
 	}
 }
